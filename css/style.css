@@ -761,3 +761,12 @@ body {
         padding-bottom: max(0px, env(safe-area-inset-bottom));
     }
 }
+
+@keyframes slide-slow {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-slide-slow {
+  animation: slide-slow 40s linear infinite; /* Increased from maybe 20s to 40s */
+}
