@@ -29,16 +29,6 @@ function toggleMenu() {
     }
 }
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenu) {
-            mobileMenu.classList.add('hidden');
-        }
-    });
-});
-
 // ==================== CAROUSEL FUNCTIONALITY ====================
 
 class ProductCarousel {
@@ -50,6 +40,8 @@ class ProductCarousel {
         this.cards = Array.from(this.track.querySelectorAll('.product-card'));
         this.prevBtn = document.querySelector(`[data-carousel="${carouselId}"].carousel-btn-prev`);
         this.nextBtn = document.querySelector(`[data-carousel="${carouselId}"].carousel-btn-next`);
+        this.mobilePrevBtn = document.querySelector(`[data-carousel="${carouselId}"].mobile-carousel-btn-prev`);
+        this.mobileNextBtn = document.querySelector(`[data-carousel="${carouselId}"].mobile-carousel-btn-next`);
         
         this.currentIndex = 0;
         this.cardWidth = 0;
@@ -58,12 +50,6 @@ class ProductCarousel {
         this.autoPlayInterval = null;
         this.isAnimating = false;
 
-        // Touch/Swipe properties
-        this.touchStartX = 0;
-        this.touchEndX = 0;
-        this.isDragging = false;
-        this.startScrollLeft = 0;
-
         this.init();
     }
 
@@ -71,11 +57,6 @@ class ProductCarousel {
         this.calculateDimensions();
         this.setupEventListeners();
         this.updateButtons();
-
-        // Enable touch scrolling on mobile
-        if (isMobile() || isTablet()) {
-            this.enableTouchScrolling();
-        }
 
         // Start auto-play ONLY on desktop
         if (isDesktop()) {
@@ -109,7 +90,7 @@ class ProductCarousel {
             this.visibleCards = 3;
             this.cardWidth = 260;
         } else {
-            this.visibleCards = 1.5;
+            this.visibleCards = 1.2;
             this.cardWidth = this.cards[0].offsetWidth;
         }
     }
@@ -124,112 +105,65 @@ class ProductCarousel {
             this.nextBtn.addEventListener('click', () => this.next());
         }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') this.prev();
-            if (e.key === 'ArrowRight') this.next();
+        // Mobile navigation buttons
+        if (this.mobilePrevBtn) {
+            this.mobilePrevBtn.addEventListener('click', () => this.prev());
+        }
+
+        if (this.mobileNextBtn) {
+            this.mobileNextBtn.addEventListener('click', () => this.next());
+        }
+
+        // Keyboard navigation for this specific carousel
+        this.carousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                this.prev();
+            }
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                this.next();
+            }
         });
+
+        // Make carousel focusable for keyboard navigation
+        this.carousel.setAttribute('tabindex', '0');
 
         // Pause on hover (desktop only)
         if (isDesktop()) {
             this.carousel.addEventListener('mouseenter', () => this.stopAutoPlay());
             this.carousel.addEventListener('mouseleave', () => this.startAutoPlay());
         }
+
+        // Touch/swipe for mobile
+        if (isMobile() || isTablet()) {
+            this.enableTouchScrolling();
+        }
     }
 
     enableTouchScrolling() {
-        // Enable smooth horizontal scrolling on touch devices
-        this.carousel.style.overflowX = 'auto';
-        this.carousel.style.scrollSnapType = 'x mandatory';
-        
-        this.cards.forEach(card => {
-            card.style.scrollSnapAlign = 'start';
-        });
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
 
-        // Touch events for swipe detection
         this.carousel.addEventListener('touchstart', (e) => {
-            this.touchStartX = e.touches[0].clientX;
-            this.startScrollLeft = this.carousel.scrollLeft;
-            
-            // Stop auto-play on touch (if it's running)
-            if (this.autoPlayInterval) {
-                this.stopAutoPlay();
-            }
-        }, { passive: true });
-
-        this.carousel.addEventListener('touchmove', (e) => {
-            this.isDragging = true;
+            touchStartX = e.touches[0].clientX;
         }, { passive: true });
 
         this.carousel.addEventListener('touchend', (e) => {
-            this.touchEndX = e.changedTouches[0].clientX;
-            this.handleSwipe();
-            this.isDragging = false;
-            
-            // Restart auto-play on desktop only after swipe
-            if (isDesktop()) {
-                setTimeout(() => this.startAutoPlay(), 1000);
+            touchEndX = e.changedTouches[0].clientX;
+            const swipeDistance = touchStartX - touchEndX;
+
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swiped left - next
+                    this.next();
+                } else {
+                    // Swiped right - prev
+                    this.prev();
+                }
             }
         }, { passive: true });
-
-        // Mouse drag for desktop touch screens
-        let mouseStartX = 0;
-        let scrollStart = 0;
-        let isMouseDragging = false;
-
-        this.carousel.addEventListener('mousedown', (e) => {
-            if (!isDesktop()) return;
-            isMouseDragging = true;
-            mouseStartX = e.pageX - this.carousel.offsetLeft;
-            scrollStart = this.carousel.scrollLeft;
-            this.carousel.style.cursor = 'grabbing';
-            
-            // Stop auto-play on drag start
-            this.stopAutoPlay();
-        });
-
-        this.carousel.addEventListener('mousemove', (e) => {
-            if (!isMouseDragging) return;
-            e.preventDefault();
-            const x = e.pageX - this.carousel.offsetLeft;
-            const walk = (x - mouseStartX) * 2;
-            this.carousel.scrollLeft = scrollStart - walk;
-        });
-
-        this.carousel.addEventListener('mouseup', () => {
-            isMouseDragging = false;
-            this.carousel.style.cursor = 'grab';
-            
-            // Restart auto-play on desktop after dragging
-            if (isDesktop()) {
-                setTimeout(() => this.startAutoPlay(), 1000);
-            }
-        });
-
-        this.carousel.addEventListener('mouseleave', () => {
-            isMouseDragging = false;
-            this.carousel.style.cursor = 'grab';
-            
-            // Restart auto-play on desktop after leaving
-            if (isDesktop()) {
-                setTimeout(() => this.startAutoPlay(), 1000);
-            }
-        });
-    }
-
-    handleSwipe() {
-        const swipeThreshold = 50;
-        const swipeDistance = this.touchStartX - this.touchEndX;
-
-        if (Math.abs(swipeDistance) > swipeThreshold) {
-            if (swipeDistance > 0) {
-                // Swiped left - next
-                this.next();
-            } else {
-                // Swiped right - prev
-                this.prev();
-            }
-        }
     }
 
     next() {
@@ -288,7 +222,7 @@ class ProductCarousel {
             
             this.track.style.transform = `translateX(-${moveDistance}px)`;
         } else {
-            // Mobile/Tablet: Use smooth scrolling
+            // Mobile/Tablet: Use scrollTo
             const scrollPosition = this.currentIndex * (this.cardWidth + this.gap);
             this.carousel.scrollTo({
                 left: scrollPosition,
@@ -303,26 +237,48 @@ class ProductCarousel {
     }
 
     updateButtons() {
-        if (!this.prevBtn || !this.nextBtn) return;
-
         const maxIndex = this.cards.length - Math.floor(this.visibleCards);
 
-        // Update prev button
-        if (this.currentIndex <= 0) {
-            this.prevBtn.disabled = true;
-            this.prevBtn.style.opacity = '0.3';
-        } else {
-            this.prevBtn.disabled = false;
-            this.prevBtn.style.opacity = '1';
+        // Update desktop buttons
+        if (this.prevBtn) {
+            if (this.currentIndex <= 0) {
+                this.prevBtn.disabled = true;
+                this.prevBtn.style.opacity = '0.3';
+            } else {
+                this.prevBtn.disabled = false;
+                this.prevBtn.style.opacity = '1';
+            }
         }
 
-        // Update next button
-        if (this.currentIndex >= maxIndex) {
-            this.nextBtn.disabled = true;
-            this.nextBtn.style.opacity = '0.3';
-        } else {
-            this.nextBtn.disabled = false;
-            this.nextBtn.style.opacity = '1';
+        if (this.nextBtn) {
+            if (this.currentIndex >= maxIndex) {
+                this.nextBtn.disabled = true;
+                this.nextBtn.style.opacity = '0.3';
+            } else {
+                this.nextBtn.disabled = false;
+                this.nextBtn.style.opacity = '1';
+            }
+        }
+
+        // Update mobile buttons
+        if (this.mobilePrevBtn) {
+            if (this.currentIndex <= 0) {
+                this.mobilePrevBtn.disabled = true;
+                this.mobilePrevBtn.style.opacity = '0.3';
+            } else {
+                this.mobilePrevBtn.disabled = false;
+                this.mobilePrevBtn.style.opacity = '1';
+            }
+        }
+
+        if (this.mobileNextBtn) {
+            if (this.currentIndex >= maxIndex) {
+                this.mobileNextBtn.disabled = true;
+                this.mobileNextBtn.style.opacity = '0.3';
+            } else {
+                this.mobileNextBtn.disabled = false;
+                this.mobileNextBtn.style.opacity = '1';
+            }
         }
     }
 
@@ -355,12 +311,6 @@ class ProductCarousel {
         this.stopAutoPlay();
         this.startAutoPlay();
     }
-
-    goToSlide(index) {
-        const maxIndex = this.cards.length - Math.floor(this.visibleCards);
-        this.currentIndex = Math.max(0, Math.min(index, maxIndex));
-        this.updatePosition();
-    }
 }
 
 // ==================== INITIALIZE CAROUSELS ====================
@@ -376,6 +326,44 @@ function initializeCarousels() {
     });
 
     console.log('✅ Product carousels initialized:', Object.keys(carousels).length);
+}
+
+// ==================== GLOBAL KEYBOARD NAVIGATION ====================
+
+function setupGlobalKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        // Only handle arrow keys if not in input/textarea
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+            return;
+        }
+
+        // Find active carousel (the one currently in viewport)
+        let activeCarousel = null;
+        let minDistance = Infinity;
+
+        Object.values(carousels).forEach(carousel => {
+            if (carousel.carousel) {
+                const rect = carousel.carousel.getBoundingClientRect();
+                const distanceFromViewportCenter = Math.abs(rect.top - (window.innerHeight / 2));
+                
+                if (rect.top < window.innerHeight && rect.bottom > 0 && distanceFromViewportCenter < minDistance) {
+                    minDistance = distanceFromViewportCenter;
+                    activeCarousel = carousel;
+                }
+            }
+        });
+
+        if (activeCarousel) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                activeCarousel.prev();
+            }
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                activeCarousel.next();
+            }
+        }
+    });
 }
 
 // ==================== SCROLL TO TOP ====================
@@ -402,26 +390,6 @@ if (scrollTopBtn) {
 }
 
 window.addEventListener('scroll', debounce(updateScrollTopButton, 100));
-
-// ==================== HEADER SCROLL EFFECT ====================
-
-const header = document.querySelector('header');
-let lastScroll = 0;
-
-function updateHeader() {
-    const currentScroll = window.pageYOffset;
-
-    // Add shadow when scrolled
-    if (currentScroll > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-
-    lastScroll = currentScroll;
-}
-
-window.addEventListener('scroll', debounce(updateHeader, 100));
 
 // ==================== FORM HANDLING ====================
 
@@ -502,76 +470,28 @@ function showFormMessage(message, type) {
 
     formMessage.classList.remove('hidden');
 
-    // Scroll to message on mobile
-    if (isMobile()) {
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
     // Auto-hide after 5 seconds
     setTimeout(() => {
         formMessage.classList.add('hidden');
     }, 5000);
 }
 
-// ==================== SMOOTH SCROLLING ====================
+// ==================== INITIALIZATION ====================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('%c🎨 Techsure Solutions - Products Page', 'font-size: 20px; font-weight: bold; color: #3498DB;');
+    
+    // Initialize all features
+    updateCurrentYear();
+    initializeCarousels();
+    setupGlobalKeyboardNavigation();
+    updateScrollTopButton();
 
-        if (href === '#' || href === '#!') return;
-
-        const target = document.querySelector(href);
-
-        if (target) {
-            e.preventDefault();
-
-            const headerHeight = header ? header.offsetHeight : 0;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-
-            // Update URL
-            if (history.pushState) {
-                history.pushState(null, null, href);
-            }
-        }
-    });
+    // Add loaded class to body
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 100);
 });
-
-// ==================== LAZY LOADING IMAGES ====================
-
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    delete img.dataset.src;
-                    observer.unobserve(img);
-                }
-            });
-        }, {
-            rootMargin: isMobile() ? '50px 0px' : '100px 0px',
-            threshold: 0.1
-        });
-
-        images.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback for older browsers
-        images.forEach(img => {
-            img.src = img.dataset.src;
-            delete img.dataset.src;
-        });
-    }
-}
 
 // ==================== YEAR UPDATE ====================
 
@@ -581,131 +501,6 @@ function updateCurrentYear() {
         yearSpan.textContent = new Date().getFullYear();
     }
 }
-
-// ==================== ANIMATIONS ON SCROLL ====================
-
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe partner sections
-    document.querySelectorAll('.partner-section, .product-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-}
-
-// ==================== TRACK CLICKS ====================
-
-function trackProductClick(productName, partnerName) {
-    console.log(`Product clicked: ${productName} from ${partnerName}`);
-    
-    // Google Analytics (if implemented)
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'product_click', {
-            'event_category': 'Product',
-            'event_label': `${partnerName} - ${productName}`
-        });
-    }
-}
-
-// Add click tracking to product links
-document.querySelectorAll('.product-card a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        const productName = link.closest('.product-card').querySelector('h5').textContent;
-        const partnerName = link.closest('.mb-16, .mb-20, .mb-24').querySelector('h3').textContent;
-        trackProductClick(productName, partnerName);
-    });
-});
-
-// ==================== KEYBOARD ACCESSIBILITY ====================
-
-// Trap focus in mobile menu
-const mobileMenu = document.getElementById('mobileMenu');
-
-if (mobileMenu) {
-    mobileMenu.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            toggleMenu();
-        }
-    });
-}
-
-// ==================== RESPONSIVE VIEWPORT HANDLING ====================
-
-let resizeTimer;
-
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    
-    resizeTimer = setTimeout(() => {
-        // Close mobile menu if resized to desktop
-        if (isDesktop() && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-        }
-
-        // Reinitialize carousels and handle auto-play
-        Object.values(carousels).forEach(carousel => {
-            carousel.calculateDimensions();
-            carousel.updatePosition(false);
-            carousel.updateButtons();
-            
-            // Stop auto-play if resized to mobile/tablet
-            if (!isDesktop() && carousel.autoPlayInterval) {
-                carousel.stopAutoPlay();
-            }
-            // Start auto-play if resized to desktop and not already playing
-            else if (isDesktop() && !carousel.autoPlayInterval) {
-                carousel.startAutoPlay();
-            }
-        });
-    }, 250);
-});
-
-// ==================== INITIALIZATION ====================
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('%c🎨 Techsure Solutions - Products Page', 'font-size: 20px; font-weight: bold; color: #3498DB;');
-    console.log('%cProducts & Technology Partners', 'font-size: 14px; color: #2C3E50;');
-    console.log(`%cDevice: ${isMobile() ? 'Mobile' : isTablet() ? 'Tablet' : 'Desktop'}`, 'font-size: 12px; color: #666;');
-
-    // Initialize all features
-    updateCurrentYear();
-    initializeCarousels();
-    initLazyLoading();
-    initScrollAnimations();
-    updateScrollTopButton();
-    updateHeader();
-
-    // Add loaded class to body
-    setTimeout(() => {
-        document.body.classList.add('loaded');
-    }, 100);
-});
-
-// ==================== WINDOW LOAD ====================
-
-window.addEventListener('load', () => {
-    console.log('✅ Page fully loaded');
-    
-    // Remove any loading states
-    document.querySelectorAll('.loading').forEach(el => {
-        el.classList.remove('loading');
-    });
-});
 
 // ==================== HANDLE PAGE VISIBILITY ====================
 
@@ -724,67 +519,3 @@ document.addEventListener('visibilitychange', () => {
         }
     }
 });
-
-// ==================== PREVENT DOUBLE-TAP ZOOM (iOS) ====================
-
-if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-    let lastTouchEnd = 0;
-
-    document.addEventListener('touchend', (e) => {
-        const now = Date.now();
-        if (now - lastTouchEnd <= 300) {
-            e.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, false);
-}
-
-// ==================== FOOTER LINK HANDLING ====================
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Handle footer internal links
-    document.querySelectorAll('footer a[href^="#"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            if (href === '#' || href === '#!') return;
-            
-            const target = document.querySelector(href);
-            
-            if (target) {
-                e.preventDefault();
-                const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Ensure external links open in new tab
-    document.querySelectorAll('footer a[href^="http"], footer a[href^="https"], footer a[href^="tel:"], footer a[href^="mailto:"]').forEach(link => {
-        if (link.getAttribute('href').startsWith('tel:') || link.getAttribute('href').startsWith('mailto:')) {
-            // Phone and email links should not open in new tab
-            return;
-        }
-        if (!link.hasAttribute('target')) {
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
-        }
-    });
-});
-
-// ==================== EXPORT FOR TESTING ====================
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        ProductCarousel,
-        isMobile,
-        isTablet,
-        isDesktop,
-        toggleMenu
-    };
-}
