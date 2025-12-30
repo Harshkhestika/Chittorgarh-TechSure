@@ -44,7 +44,6 @@
 </head>
 
 <body class="font-poppins bg-primary text-text">
-
 <!-- Header -->
 <header class="fixed top-0 w-full z-50 shadow-md bg-white">
     <div class="container mx-auto px-6 flex items-center justify-between py-3">
@@ -53,6 +52,11 @@
         <a href="../index.html" class="flex items-center">
             <img src="../logo.png" alt="Techsure Solutions" class="w-20">
         </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" class="md:hidden text-2xl text-dark">
+            <i class="fas fa-bars"></i>
+        </button>
 
         <!-- Navigation Menu -->
         <nav class="hidden md:flex">
@@ -67,8 +71,65 @@
             </ul>
         </nav>
     </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white shadow-lg">
+        <ul class="flex flex-col px-6 py-4 space-y-4 font-semibold text-dark">
+            <li><a href="../index.html#home" class="hover:text-blue-600 duration-200 block py-2">Home</a></li>
+            <li><a href="../index.html#about" class="hover:text-blue-600 duration-200 block py-2">About</a></li>
+            <li><a href="../index.html#partners" class="hover:text-blue-600 duration-200 block py-2">Partners</a></li>
+            <li><a href="../index.html#services" class="hover:text-blue-600 duration-200 block py-2">Services</a></li>
+            <li><a href="../index.html#products" class="hover:text-blue-600 duration-200 block py-2">Products</a></li>
+            <li><a href="../index.html#clients" class="hover:text-blue-600 duration-200 block py-2">Clients</a></li>
+            <li><a href="../index.html#contact" class="hover:text-blue-600 duration-200 block py-2">Contact</a></li>
+        </ul>
+    </div>
 </header>
 
+<!-- Mobile Menu Toggle Script -->
+<script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                // Change icon from bars to times when open
+                const icon = mobileMenuToggle.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+    });
+</script>
 
 
 <script>
@@ -712,42 +773,106 @@ Ion Exchange Membrane Process</p>
             </div>
 
             <!-- Partner 4: FirePro -->
-            <div class="mb-16 sm:mb-20 lg:mb-24">
-                <div class="bg-primary rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 mb-8">
-                    <div class="flex flex-col md:flex-row items-center gap-6 mb-8">
-                        <div class="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-xl shadow-lg flex items-center justify-center p-4 flex-shrink-0">
-                            <img src="https://www.firesafetysearch.com/wp-content/uploads/2019/01/FirePro-logo.gif" 
-                                 alt="FirePro" class="w-full h-full object-contain">
+<div class="mb-16 sm:mb-20 lg:mb-24">
+    <div class="bg-primary rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 mb-8">
+        <div class="flex flex-col md:flex-row items-center gap-6 mb-8">
+            <div class="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-xl shadow-lg flex items-center justify-center p-4 flex-shrink-0">
+                <img src="https://www.firesafetysearch.com/wp-content/uploads/2019/01/FirePro-logo.gif" 
+                     alt="FirePro" class="w-full h-full object-contain">
+            </div>
+            <div class="text-center md:text-left flex-1">
+                <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark mb-2">FirePro</h3>
+                <p class="text-accent text-base sm:text-lg font-semibold mb-2">Fire Safety & Suppression Systems</p>
+                <!-- <p class="text-sm sm:text-base text-textlight">
+                    Advanced fire detection and suppression systems using cutting-edge aerosol technology for complete fire protection.
+                </p> -->
+            </div>
+            
+            <!-- Right side company buttons -->
+            <div class="flex flex-col sm:flex-row md:flex-col gap-3 w-full md:w-auto mt-4 md:mt-0">
+                <!-- Asha Enterprises Button -->
+                <a href="https://www.ashaenterprise.in/all-products/1" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="group relative bg-gradient-to-r from-blue-50 to-white rounded-lg sm:rounded-xl shadow-md hover:shadow-lg px-4 sm:px-5 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 border border-blue-100">
+                    <div class="flex items-center justify-between">
+                        <div class="text-left">
+                            <span class="text-dark font-bold text-sm sm:text-base md:text-lg block">Asha Enterprises</span>
+                            <span class="text-blue-600 text-xs sm:text-sm font-medium flex items-center gap-1 mt-0.5">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                Visit website
+                            </span>
                         </div>
-                        <div class="text-center md:text-left">
-                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark mb-2">FirePro</h3>
-                            <p class="text-accent text-base sm:text-lg font-semibold mb-2">Fire Safety & Suppression Systems</p>
-                            <p class="text-sm sm:text-base text-textlight">
-                                Advanced fire detection and suppression systems using cutting-edge aerosol technology for complete fire protection.
-                            </p>
+                        <div class="ml-2 sm:ml-3">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </div>
                     </div>
+                </a>
+                
+                <!-- Fire Ban Button -->
+                <a href="https://www.fire-ban.com/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="group relative bg-gradient-to-r from-red-50 to-white rounded-lg sm:rounded-xl shadow-md hover:shadow-lg px-4 sm:px-5 py-3 sm:py-4 transition-all duration-300 hover:-translate-y-0.5 border border-red-100">
+                    <div class="flex items-center justify-between">
+                        <div class="text-left">
+                            <span class="text-dark font-bold text-sm sm:text-base md:text-lg block">Fire Ban</span>
+                            <span class="text-red-600 text-xs sm:text-sm font-medium flex items-center gap-1 mt-0.5">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                Visit website
+                            </span>
+                        </div>
+                        <div class="ml-2 sm:ml-3">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-red-500 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
 
-                    <div class="relative products-carousel-wrapper">
-                        <h4 class="text-xl sm:text-2xl font-bold text-dark mb-6">Product Range</h4>
-                        
-                        <button class="carousel-btn carousel-btn-prev hidden lg:flex" data-carousel="firepro">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-btn carousel-btn-next hidden lg:flex" data-carousel="firepro">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+        <div class="relative products-carousel-wrapper">
+            <h4 class="text-xl sm:text-2xl font-bold text-dark mb-6">Product Range</h4>
+            
+            <button class="carousel-btn carousel-btn-prev hidden lg:flex" data-carousel="firepro">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn carousel-btn-next hidden lg:flex" data-carousel="firepro">
+                <i class="fas fa-chevron-right"></i>
+            </button>
 
-                        <div class="products-carousel overflow-hidden" id="firepro">
-                            <div class="products-track flex gap-4 transition-transform duration-500">
+            <div class="products-carousel overflow-hidden" id="firepro">
+                <div class="products-track flex gap-4 transition-transform duration-500">
+                    <!-- Product cards remain the same -->
+                    <div class="product-card flex-shrink-0">
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
+                            <img src="https://productimages.withfloats.com/tile/685d198b1228184bbf84c12f.png" 
+                                 alt="FireBan Fire Thermal Camera" class="w-full h-40 sm:h-48 object-cover">
+                            <div class="p-4">
+                                <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">FireBan Fire Thermal Camera</h5>
+                                <p class="text-xs sm:text-sm text-textlight mb-3">Advanced FireBan Thermal Camera</p>
+                                <a href="https://www.ashaenterprise.in/products/category/fireban-products/1" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                    <span>Learn More</span>
+                                    <i class="fas fa-arrow-right text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_C4Q6R0BqC7gQ-TQG9BRAaNcscerXU4ZJQ&s" 
-                                             alt="Aerosol Generators" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://productimages.withfloats.com/tile/68087103443303040d464b9e.jpg" 
+                                             alt="Inert Gas Fire Suppression System" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Aerosol Generators</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Advanced aerosol fire suppression</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Inert Gas Fire Suppression System</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Inert Gas Fire suppression systems</p>
+                                            <a href="https://www.ashaenterprise.in/products/category/inert-gas-fire-suppression-system/1" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
@@ -757,12 +882,12 @@ Ion Exchange Membrane Process</p>
 
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/8/SG/GY/LM/2272243/fire-smoke-detector.jpg" 
-                                             alt="Fire Detection" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://productimages.withfloats.com/tile/680872fd5479e9de3e7a21d0.png" 
+                                             alt="Cylinder Less Tube Based Fire Detection System" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Fire Detection</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Intelligent fire detection systems</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Cylinder Less Tube Based Fire Detection Systems</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Eco-friendly Cylinder Fire Detection System</p>
+                                            <a href="https://www.ashaenterprise.in/products/category/cylinder-less-tube-based-fire-detection-system/1" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
@@ -770,14 +895,15 @@ Ion Exchange Membrane Process</p>
                                     </div>
                                 </div>
 
+                                <!-- p4 -->
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://blog.koorsen.com/hubfs/Blogs/Products%20and%20Services/Fire%20Suppression/Fire%20Suppression%20System%20Hands%20On.jpg" 
-                                             alt="CO2 Systems" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://productimages.withfloats.com/tile/6808741d7e6af3b89a9fb78f.jpg" 
+                                             alt="Nitrogen Injection Fire Protection System" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">CO₂ Systems</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Carbon dioxide suppression systems</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Nitrogen Injection Fire Protection System</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Intelligent Nitrogen Injection Fire Protection System</p>
+                                            <a href="https://www.ashaenterprise.in/products/category/nitrogen-injection-fire-protection-system/1" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
@@ -785,14 +911,15 @@ Ion Exchange Membrane Process</p>
                                     </div>
                                 </div>
 
+                                <!-- p5 -->
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" 
-                                             alt="Clean Agent Systems" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://productimages.withfloats.com/tile/680767c9c74698448a329ba4.jpg" 
+                                             alt="co2 flooding system" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Clean Agent Systems</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Eco-friendly suppression agents</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">co2 flooding system</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Advanced co2 flooding system</p>
+                                            <a href="https://www.ashaenterprise.in/products/category/co2-flooding-system/1t" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
@@ -800,44 +927,15 @@ Ion Exchange Membrane Process</p>
                                     </div>
                                 </div>
 
+                                <!-- p6 -->
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_C4Q6R0BqC7gQ-TQG9BRAaNcscerXU4ZJQ&s" 
-                                             alt="Fire Alarm Panels" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://www.thumbsfrog.com/1050416/product/thumb/kitchen-fire-suppression-systems-1751525566.jpg" 
+                                             alt="Kitchen Fire Suppression Systems" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Fire Alarm Panels</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Intelligent fire alarm control panels</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
-                                                <span>Learn More</span>
-                                                <i class="fas fa-arrow-right text-xs"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="product-card flex-shrink-0">
-                                    <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/8/SG/GY/LM/2272243/fire-smoke-detector.jpg" 
-                                             alt="Smoke Detectors" class="w-full h-40 sm:h-48 object-cover">
-                                        <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Smoke Detectors</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Advanced smoke detection sensors</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
-                                                <span>Learn More</span>
-                                                <i class="fas fa-arrow-right text-xs"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="product-card flex-shrink-0">
-                                    <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://blog.koorsen.com/hubfs/Blogs/Products%20and%20Services/Fire%20Suppression/Fire%20Suppression%20System%20Hands%20On.jpg" 
-                                             alt="Gas Detection" class="w-full h-40 sm:h-48 object-cover">
-                                        <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Gas Detection</h5>
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Kitchen Fire Suppression Systems</h5>
                                             <p class="text-xs sm:text-sm text-textlight mb-3">Multi-gas detection systems</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <a href="https://www.fire-ban.com/products/kitchen-fire-suppression-system.html" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
@@ -845,14 +943,15 @@ Ion Exchange Membrane Process</p>
                                     </div>
                                 </div>
 
+                                <!-- p7 -->
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" 
-                                             alt="Tubing Systems" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://www.thumbsfrog.com/1050416/product/dual-agent-retardant-fire-suppression-system-1720250560.jpg" 
+                                             alt="Vehicle Fire Protection" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Tubing Systems</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Linear heat detection tubing</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Vehicle Fire Protection</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Vehicle Fire ProtectionSystem Multi Methods</p>
+                                            <a href="https://www.fire-ban.com/products/vehicle-fire-protection.html" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
@@ -860,14 +959,15 @@ Ion Exchange Membrane Process</p>
                                     </div>
                                 </div>
 
+                                <!-- p8 -->
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_C4Q6R0BqC7gQ-TQG9BRAaNcscerXU4ZJQ&s" 
-                                             alt="Fire Extinguishers" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://www.thumbsfrog.com/1050416/product/thumb/bus-fire-system-172812500811050416.png" 
+                                             alt="Bus Fire System" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Fire Extinguishers</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Portable fire extinguishers</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Bus Fire System</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Portable Bus Fire System</p>
+                                            <a href="https://www.fire-ban.com/products/bus-fire-system.html" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
@@ -875,14 +975,31 @@ Ion Exchange Membrane Process</p>
                                     </div>
                                 </div>
 
+                                <!-- p9 -->
                                 <div class="product-card flex-shrink-0">
                                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-                                        <img src="https://5.imimg.com/data5/SELLER/Default/2022/8/SG/GY/LM/2272243/fire-smoke-detector.jpg" 
-                                             alt="Emergency Lighting" class="w-full h-40 sm:h-48 object-cover">
+                                        <img src="https://www.thumbsfrog.com/1050416/product/thumb/mining-fire-system-172812611611050416.PNG" 
+                                             alt="Mining Fire System" class="w-full h-40 sm:h-48 object-cover">
                                         <div class="p-4">
-                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Emergency Lighting</h5>
-                                            <p class="text-xs sm:text-sm text-textlight mb-3">Emergency exit lighting systems</p>
-                                            <a href="#contact" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Mining Fire System</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Emergency Mining Fire System</p>
+                                            <a href="https://www.fire-ban.com/products/mining-fire-system.html" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
+                                                <span>Learn More</span>
+                                                <i class="fas fa-arrow-right text-xs"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- p10 -->
+                                <div class="product-card flex-shrink-0">
+                                    <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
+                                        <img src="https://www.thumbsfrog.com/1050416/product/fire-detection-fire-alarm-system-1751529429.jpg" 
+                                             alt="Fire System" class="w-full h-40 sm:h-48 object-cover">
+                                        <div class="p-4">
+                                            <h5 class="font-bold text-dark mb-2 text-sm sm:text-base">Fire Alarms And Detection Systems</h5>
+                                            <p class="text-xs sm:text-sm text-textlight mb-3">Emergency Fire Alarms And Detection Systems</p>
+                                            <a href="https://www.fire-ban.com/products/fire-alarms-and-detection-systems.html" class="text-accent hover:text-blue-600 text-xs sm:text-sm font-semibold flex items-center gap-1">
                                                 <span>Learn More</span>
                                                 <i class="fas fa-arrow-right text-xs"></i>
                                             </a>
