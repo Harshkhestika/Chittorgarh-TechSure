@@ -1,4 +1,3 @@
-
 // Products Page JavaScript - Enhanced with Carousel Functionality
 
 // ==================== UTILITY FUNCTIONS ====================
@@ -78,11 +77,23 @@ class ProductCarousel {
             this.enableTouchScrolling();
         }
 
+        // Start auto-play ONLY on desktop
+        if (isDesktop()) {
+            this.startAutoPlay();
+        }
+
         // Update on window resize
         window.addEventListener('resize', debounce(() => {
             this.calculateDimensions();
             this.updatePosition(false);
             this.updateButtons();
+            
+            // Re-evaluate auto-play on resize
+            if (isDesktop() && !this.autoPlayInterval) {
+                this.startAutoPlay();
+            } else if (!isDesktop() && this.autoPlayInterval) {
+                this.stopAutoPlay();
+            }
         }, 250));
     }
 
@@ -139,6 +150,11 @@ class ProductCarousel {
         this.carousel.addEventListener('touchstart', (e) => {
             this.touchStartX = e.touches[0].clientX;
             this.startScrollLeft = this.carousel.scrollLeft;
+            
+            // Stop auto-play on touch (if it's running)
+            if (this.autoPlayInterval) {
+                this.stopAutoPlay();
+            }
         }, { passive: true });
 
         this.carousel.addEventListener('touchmove', (e) => {
@@ -149,6 +165,11 @@ class ProductCarousel {
             this.touchEndX = e.changedTouches[0].clientX;
             this.handleSwipe();
             this.isDragging = false;
+            
+            // Restart auto-play on desktop only after swipe
+            if (isDesktop()) {
+                setTimeout(() => this.startAutoPlay(), 1000);
+            }
         }, { passive: true });
 
         // Mouse drag for desktop touch screens
@@ -162,6 +183,9 @@ class ProductCarousel {
             mouseStartX = e.pageX - this.carousel.offsetLeft;
             scrollStart = this.carousel.scrollLeft;
             this.carousel.style.cursor = 'grabbing';
+            
+            // Stop auto-play on drag start
+            this.stopAutoPlay();
         });
 
         this.carousel.addEventListener('mousemove', (e) => {
@@ -175,11 +199,21 @@ class ProductCarousel {
         this.carousel.addEventListener('mouseup', () => {
             isMouseDragging = false;
             this.carousel.style.cursor = 'grab';
+            
+            // Restart auto-play on desktop after dragging
+            if (isDesktop()) {
+                setTimeout(() => this.startAutoPlay(), 1000);
+            }
         });
 
         this.carousel.addEventListener('mouseleave', () => {
             isMouseDragging = false;
             this.carousel.style.cursor = 'grab';
+            
+            // Restart auto-play on desktop after leaving
+            if (isDesktop()) {
+                setTimeout(() => this.startAutoPlay(), 1000);
+            }
         });
     }
 
@@ -206,6 +240,15 @@ class ProductCarousel {
         if (this.currentIndex < maxIndex) {
             this.currentIndex++;
             this.updatePosition();
+        } else {
+            // Loop back to start if at the end
+            this.currentIndex = 0;
+            this.updatePosition();
+        }
+        
+        // Reset auto-play timer after manual navigation
+        if (isDesktop() && this.autoPlayInterval) {
+            this.restartAutoPlay();
         }
     }
 
@@ -215,6 +258,16 @@ class ProductCarousel {
         if (this.currentIndex > 0) {
             this.currentIndex--;
             this.updatePosition();
+        } else {
+            // Loop to end if at the start
+            const maxIndex = this.cards.length - Math.floor(this.visibleCards);
+            this.currentIndex = maxIndex;
+            this.updatePosition();
+        }
+        
+        // Reset auto-play timer after manual navigation
+        if (isDesktop() && this.autoPlayInterval) {
+            this.restartAutoPlay();
         }
     }
 
@@ -273,7 +326,10 @@ class ProductCarousel {
         }
     }
 
-    startAutoPlay(interval = 5000) {
+    startAutoPlay(interval = 4000) {
+        // Only start auto-play on desktop
+        if (!isDesktop()) return;
+        
         this.stopAutoPlay();
         this.autoPlayInterval = setInterval(() => {
             const maxIndex = this.cards.length - Math.floor(this.visibleCards);
@@ -291,6 +347,13 @@ class ProductCarousel {
             clearInterval(this.autoPlayInterval);
             this.autoPlayInterval = null;
         }
+    }
+
+    restartAutoPlay() {
+        if (!isDesktop()) return;
+        
+        this.stopAutoPlay();
+        this.startAutoPlay();
     }
 
     goToSlide(index) {
@@ -594,11 +657,20 @@ window.addEventListener('resize', () => {
             mobileMenu.classList.add('hidden');
         }
 
-        // Reinitialize carousels
+        // Reinitialize carousels and handle auto-play
         Object.values(carousels).forEach(carousel => {
             carousel.calculateDimensions();
             carousel.updatePosition(false);
             carousel.updateButtons();
+            
+            // Stop auto-play if resized to mobile/tablet
+            if (!isDesktop() && carousel.autoPlayInterval) {
+                carousel.stopAutoPlay();
+            }
+            // Start auto-play if resized to desktop and not already playing
+            else if (isDesktop() && !carousel.autoPlayInterval) {
+                carousel.startAutoPlay();
+            }
         });
     }, 250);
 });
@@ -644,7 +716,7 @@ document.addEventListener('visibilitychange', () => {
             carousel.stopAutoPlay();
         });
     } else {
-        // Page is visible - resume auto-play
+        // Page is visible - resume auto-play ONLY on desktop
         if (isDesktop()) {
             Object.values(carousels).forEach(carousel => {
                 carousel.startAutoPlay();
@@ -667,25 +739,9 @@ if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
     }, false);
 }
 
-// ==================== EXPORT FOR TESTING ====================
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        ProductCarousel,
-        isMobile,
-        isTablet,
-        isDesktop,
-        toggleMenu
-    };
-}
-
-
-// Add this to your existing products.js file
-
 // ==================== FOOTER LINK HANDLING ====================
-document.addEventListener('DOMContentLoaded', () => {
-    // ... your existing code ...
 
+document.addEventListener('DOMContentLoaded', () => {
     // Handle footer internal links
     document.querySelectorAll('footer a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -720,3 +776,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// ==================== EXPORT FOR TESTING ====================
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        ProductCarousel,
+        isMobile,
+        isTablet,
+        isDesktop,
+        toggleMenu
+    };
+}
