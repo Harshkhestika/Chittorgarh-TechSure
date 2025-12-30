@@ -1,0 +1,763 @@
+/* Enhanced Custom Styles for Responsive Design */
+
+:root {
+    --animation-delay-step: 100ms;
+    --header-height: 64px;
+    --header-height-mobile: 56px;
+}
+
+/* Base Styles */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (max-width: 640px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1920px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Navigation Link Styles */
+.nav-link {
+    position: relative;
+    padding: 8px 0;
+    display: inline-block;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3498DB, #2980B9);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #3498DB;
+}
+
+/* Header Responsive */
+#header {
+    height: var(--header-height);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1024px) {
+    #header {
+        height: var(--header-height-mobile);
+    }
+}
+
+#header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Delay Classes */
+.animation-delay-200 {
+    animation-delay: 200ms;
+}
+
+.animation-delay-400 {
+    animation-delay: 400ms;
+}
+
+.animation-delay-600 {
+    animation-delay: 600ms;
+}
+
+/* Client Slider */
+.client-slider {
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.client-slider .flex {
+    display: flex;
+    animation: slide 40s linear infinite;
+    width: max-content;
+}
+
+.client-slider-slow .flex {
+    animation: slide 60s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .client-slider .flex {
+        animation: slide 30s linear infinite;
+    }
+    
+    .client-slider-slow .flex {
+        animation: slide 40s linear infinite;
+    }
+}
+
+.client-slider .flex:hover {
+    animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3498DB;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980B9;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #3498DB #f1f1f1;
+}
+
+/* Form Focus Styles */
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    outline: none;
+}
+
+/* Form Error States */
+.error {
+    border-color: #ef4444 !important;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.success {
+    border-color: #10b981 !important;
+}
+
+/* Container Max Width Adjustments */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+    }
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    /* Hero Section Mobile Fix */
+    #home {
+        padding-top: calc(var(--header-height-mobile) + 2rem);
+        min-height: calc(100vh - var(--header-height-mobile));
+    }
+    
+    .hero h1 {
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        line-height: 1.5;
+    }
+    
+    /* Touch-friendly spacing */
+    button, a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Tablet Specific Styles */
+    #home {
+        padding-top: calc(var(--header-height-mobile) + 3rem);
+    }
+}
+
+@media (min-width: 1025px) {
+    #home {
+        padding-top: calc(var(--header-height) + 4rem);
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Image Loading Animation */
+img {
+    transition: opacity 0.3s ease;
+    max-width: 100%;
+    height: auto;
+}
+
+img[data-src] {
+    opacity: 0;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Lazy Loading Blur Effect */
+img.lazy {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+img.lazy.loaded {
+    filter: blur(0);
+}
+
+/* Custom Animations */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Back to Top Button Transition */
+#scroll-top {
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+#scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Section Spacing */
+section {
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+@media (max-width: 1024px) {
+    section {
+        scroll-margin-top: calc(var(--header-height-mobile) + 1rem);
+    }
+}
+
+/* Custom Button Styles */
+.btn-gradient {
+    background: linear-gradient(135deg, #3498DB, #2980B9);
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
+.btn-gradient:active {
+    transform: translateY(0);
+}
+
+/* Card Hover Effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section Background Overlay */
+.hero-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+}
+
+/* Service Card Fixed Height */
+.service-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-image {
+    flex-shrink: 0;
+}
+
+.service-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Product Card */
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Partner Logo Grid */
+.partners-grid .bg-white {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partners-grid .bg-white:hover {
+    transform: translateY(-4px);
+}
+
+/* Text Truncation Classes */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Print Styles */
+@media print {
+    .hero, .client-slider, .whatsapp-float, #scroll-top, #hamburger, #mobile-menu, header nav {
+        display: none !important;
+    }
+    
+    header {
+        position: static !important;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #3498DB;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form Message Styles */
+#form-message.success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    animation: fadeIn 0.5s ease;
+}
+
+#form-message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Focus Visible for Accessibility */
+:focus-visible {
+    outline: 2px solid #3498DB;
+    outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #3498DB;
+    outline-offset: 2px;
+}
+
+/* Skip to Content Link for Accessibility */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #3498DB;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Touch Device Optimization */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .hover-lift:hover {
+        transform: none;
+    }
+    
+    .btn-gradient:hover {
+        transform: none;
+    }
+    
+    /* Increase touch target size */
+    button, a, input, textarea, select {
+        min-height: 48px;
+    }
+}
+
+/* High DPI Displays */
+@media 
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+    /* Optimize for retina displays */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Landscape Orientation on Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    #home {
+        min-height: auto;
+        padding-top: calc(var(--header-height-mobile) + 1rem);
+        padding-bottom: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.875rem;
+    }
+}
+
+/* Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* iOS Safari */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        font-size: 16px; /* Prevents zoom on focus */
+    }
+}
+
+/* Firefox Specific Fixes */
+@-moz-document url-prefix() {
+    /* Firefox-specific styles */
+    .client-slider .flex {
+        will-change: transform;
+    }
+}
+
+/* Edge Specific Fixes */
+@supports (-ms-ime-align: auto) {
+    /* Edge-specific styles */
+    .grid {
+        display: -ms-grid;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    /* Add dark mode styles if needed */
+}
+
+/* Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 374px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1920px) {
+    .hero h1 {
+        font-size: 5rem;
+    }
+    
+    .hero p {
+        font-size: 1.75rem;
+    }
+}
+
+/* Ultra Wide */
+@media (min-width: 2560px) {
+    .container {
+        max-width: 2400px;
+    }
+    
+    html {
+        font-size: 20px;
+    }
+}
+
+/* Zoom Support */
+@media (min-width: 1024px) {
+    /* Ensures layout stays intact at 50% zoom */
+    body {
+        min-width: 512px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+    /* Optimized for common laptop resolutions */
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* iPad Pro Specific */
+@media only screen 
+    and (min-device-width: 1024px) 
+    and (max-device-width: 1366px) 
+    and (-webkit-min-device-pixel-ratio: 2) {
+    /* iPad Pro specific styles */
+    .container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+/* Prevent Layout Shift */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Performance Optimization */
+.client-slider .flex,
+.animate-slide,
+.animate-slide-slow {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Smooth Font Rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Selection Color */
+::selection {
+    background-color: #3498DB;
+    color: white;
+}
+
+::-moz-selection {
+    background-color: #3498DB;
+    color: white;
+}
+
+/* Utility Classes */
+.break-words {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Aspect Ratio Boxes */
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+/* Accessibility - Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Safe Area for Notched Devices */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    header {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    footer {
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+}

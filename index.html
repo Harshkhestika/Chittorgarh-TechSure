@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Techsure Solutions - One Stop Solution for All Industrial Needs">
+    <meta name="theme-color" content="#3498DB">
+    <title>Techsure Solutions | Industrial Products & Services</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FAF8F3',
+                        secondary: '#F5F1E8',
+                        accent: '#3498DB',
+                        dark: '#2C3E50',
+                        text: '#333333',
+                        textlight: '#666666'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'slide': 'slide 40s linear infinite',
+                        'slide-slow': 'slide 60s linear infinite',
+                        'bounce': 'bounce 2s infinite',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'fade-up': 'fadeUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        slide: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        bounce: {
+                            '0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
+                            '40%': { transform: 'translateY(-10px)' },
+                            '60%': { transform: 'translateY(-5px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    screens: {
+                        'xs': '375px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                        '3xl': '1920px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+
+    <link rel="icon" type="logo.png" href="logo.png">
+
+</head>
+<body class="font-poppins bg-primary text-text">
+    <!-- Header -->
+<header class="fixed top-0 w-full z-50 shadow-md bg-white">
+    <div class="container mx-auto px-6 flex items-center justify-between py-3">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center">
+            <img src="logo.png" alt="Techsure Solutions" class="w-20"> 
+            <!-- Increased width from w-28 to w-40 -->
+        </a>
+
+        <!-- Navigation Menu -->
+        <nav class="hidden md:flex">
+            <ul class="flex gap-10 font-semibold text-[18px] tracking-wide">
+                <li><a href="#home" class="hover:text-blue-600 duration-200">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-600 duration-200">About</a></li>
+                <li><a href="#partners" class="hover:text-blue-600 duration-200">Partners</a></li>
+                <li><a href="#services" class="hover:text-blue-600 duration-200">Services</a></li>
+                <li><a href="#products" class="hover:text-blue-600 duration-200">Products</a></li>
+                <li><a href="#clients" class="hover:text-blue-600 duration-200">Clients</a></li>
+                <li><a href="#contact" class="hover:text-blue-600 duration-200">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-gray-700 text-3xl" onclick="toggleMenu()">
+            ☰
+        </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="hidden bg-white shadow-md md:hidden">
+        <ul class="flex flex-col text-lg font-medium text-gray-800">
+            <li><a href="#home" class="block px-6 py-3 border-b">Home</a></li>
+            <li><a href="#about" class="block px-6 py-3 border-b">About</a></li>
+            <li><a href="#partners" class="block px-6 py-3 border-b">Partners</a></li>
+            <li><a href="#services" class="block px-6 py-3 border-b">Services</a></li>
+            <li><a href="#products" class="block px-6 py-3 border-b">Products</a></li>
+            <li><a href="#clients" class="block px-6 py-3 border-b">Clients</a></li>
+            <li><a href="#contact" class="block px-6 py-3">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<script>
+    function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("hidden");
+    }
+</script>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
+        <!-- Background Images -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/90"></div>
+            <div class="absolute inset-0 bg-[url('https://i.pinimg.com/1200x/97/4e/80/974e806037066d46cce9d9f774836949.jpg')] bg-cover bg-center opacity-100"></div>
+            <!-- <div class="absolute inset-0 bg-[url('https://i.pinimg.com/1200x/05/d1/d9/05d1d936fa242131fea592f0d68ce519.jpg')] bg-cover bg-center opacity-100"></div> -->
+        </div>
+        
+        <!-- Content -->
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10 py-8 sm:py-12 opacity-90">
+            <div class="max-w-4xl mx-auto text-center bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl">
+                <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-dark mb-4 sm:mb-6 animate-fade-up leading-tight">
+                    One Stop Solution for <span class="text-accent">All Industrial Needs</span>
+                </h1>
+                
+                <p class="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-textlight mb-6 sm:mb-8 animate-fade-up animation-delay-200">
+                    Serving Cement, Power, Mining, Textile, Fertilizers & Process Industries
+                </p>
+                
+                <div class="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center animate-fade-up animation-delay-400">
+                    <a href="#services" class="bg-accent hover:bg-blue-600 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 hover:shadow-xl flex items-center justify-center space-x-2">
+                        <!-- <i class="fas fa-cogs"></i> -->
+                        <span>Our Services</span>
+                    </a>
+                    
+                    <a href="#products" class="bg-white hover:bg-gray-100 text-dark border-2 border-accent px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 hover:shadow-xl flex items-center justify-center space-x-2">
+                        <!-- <i class="fas fa-phone"></i> -->
+                        <span>Products & Solutions</span>
+                    </a>
+                    
+                    <a href="https://wa.me/919460476041" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 hover:shadow-xl flex items-center justify-center space-x-2">
+                        <!-- <i class="fab fa-whatsapp"></i> -->
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10 hidden sm:block">
+            <a href="#about" class="text-accent text-xl sm:text-2xl bg-white/80 p-2 rounded-full hover:bg-white transition-colors">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10 sm:mb-12 lg:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">About Techsure Solutions</h2>
+                <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl mx-auto px-4">Your Trusted Industrial Partner Since 2020</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="bg-primary p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg">
+                        <h3 class="text-xl sm:text-2xl font-bold text-dark mb-3 sm:mb-4">Our Mission & Vision</h3>
+                        <p class="text-sm sm:text-base text-textlight mb-4 sm:mb-6">
+                            Techsure Solutions is a one-stop solution for all industrial needs. We are one of the leading professionally managed industrial companies providing products and services to cement, power, mining & minerals, textile, fertilizer, and other process industries.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                            <div class="bg-white p-3 sm:p-4 rounded-lg text-center">
+                                <div class="text-2xl sm:text-3xl font-bold text-accent mb-1 sm:mb-2">200+</div>
+                                <div class="text-xs sm:text-sm text-textlight">Clients Served</div>
+                            </div>
+                            <div class="bg-white p-3 sm:p-4 rounded-lg text-center">
+                                <div class="text-2xl sm:text-3xl font-bold text-accent mb-1 sm:mb-2">50+</div>
+                                <div class="text-xs sm:text-sm text-textlight">Projects Completed</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-accent/10 border-l-4 border-accent p-3 sm:p-4 rounded">
+                            <p class="text-xs sm:text-sm text-dark font-semibold">
+                                <i class="fas fa-certificate text-accent mr-2"></i>
+                                MSME Certified Company | GSTIN: 08AROPN9499H1ZQ
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div class="bg-primary p-4 sm:p-6 rounded-xl shadow">
+                            <div class="text-accent text-2xl sm:text-3xl mb-3 sm:mb-4">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h4 class="font-bold text-dark mb-2 text-sm sm:text-base">Our Mission</h4>
+                            <p class="text-xs sm:text-sm text-textlight">Consistent growth using best global technologies while maintaining long-term customer relationships.</p>
+                        </div>
+                        
+                        <div class="bg-primary p-4 sm:p-6 rounded-xl shadow">
+                            <div class="text-accent text-2xl sm:text-3xl mb-3 sm:mb-4">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4 class="font-bold text-dark mb-2 text-sm sm:text-base">Our Vision</h4>
+                            <p class="text-xs sm:text-sm text-textlight">To be the most trusted partner for industrial solutions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="rounded-lg sm:rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://media.istockphoto.com/id/135277824/photo/cement-plant.jpg?s=612x612&w=0&k=20&c=ZDaSTf90niU2d_qH0jdNAxO08H7mFZY5ZeDOAmhPdio=" 
+                                 alt="Cement Plant" class="w-full h-32 sm:h-40 lg:h-48 object-cover">
+                        </div>
+                        <div class="rounded-lg sm:rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://images.pexels.com/photos/459728/pexels-photo-459728.jpeg?cs=srgb&dl=pexels-pixabay-459728.jpg&fm=jpg" 
+                                 alt="Power-Plant" class="w-full h-32 sm:h-40 lg:h-48 object-cover">
+                        </div>
+                    </div>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="rounded-lg sm:rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://media.istockphoto.com/id/1390249924/photo/industrial-plant-for-the-production-of-sheet-metal-in-a-steel-mill-storage-of-sheet-rolls.jpg?s=612x612&w=0&k=20&c=9g5S8FB15_JvdCzRFDhzamHSd7pjz_0lTBCl4L66TGM=" 
+                                 alt="Steel Plant" class="w-full h-32 sm:h-40 lg:h-48 object-cover">
+                        </div>
+                        <div class="rounded-lg sm:rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://chandnacorporation.com/wp-content/uploads/2023/05/india-garmen-factory.jpg" 
+                                 alt="Textile-Plant" class="w-full h-32 sm:h-40 lg:h-48 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="py-12 sm:py-16 lg:py-20 bg-secondary">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10 sm:mb-12 lg:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">Our Partner Companies</h2>
+                <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl mx-auto px-4">Collaborating with world-leading industrial companies</p>
+            </div>
+            
+            <!-- Enhanced Partner Logos Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 partners-grid">
+                <!-- Partner 1 -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                            <div class="w-14 h-14 sm:w-16 lg:w-20 sm:h-16 lg:h-20 bg-primary rounded-lg flex items-center justify-center p-2 flex-shrink-0">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTop1tlJ0w7pgma3r3N7hQ9sPMM0XD3sXMsbA&s" 
+                                     alt="Asian Paints" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-base sm:text-lg lg:text-xl font-bold text-dark truncate">Asian Paints</h3>
+                                <p class="text-accent text-xs sm:text-sm">Industrial Coatings</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 line-clamp-3">
+                            India's largest paint company offering innovative coating solutions for industrial applications.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Partner 2 -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                            <div class="w-14 h-14 sm:w-16 lg:w-20 sm:h-16 lg:h-20 bg-primary rounded-lg flex items-center justify-center p-2 flex-shrink-0">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlozP0GQwJLwcsGoEDMiI6mS23VLagpLpkwg&s" 
+                                     alt="Superon" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-base sm:text-lg lg:text-xl font-bold text-dark truncate">Superon</h3>
+                                <p class="text-accent text-xs sm:text-sm">Welding Solutions</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 line-clamp-3">
+                            Premium quality welding electrodes and welding consumables for industrial applications.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Partner 3 -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                            <div class="w-14 h-14 sm:w-16 lg:w-20 sm:h-16 lg:h-20 bg-primary rounded-lg flex items-center justify-center p-2 flex-shrink-0">
+                                <img src="https://www.indianchemicalnews.com/public/thumbs/news/2025/12/28583/ION_Exchange_India_195_291.jpg" 
+                                     alt="Ion Exchange" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-base sm:text-lg lg:text-xl font-bold text-dark truncate">Ion Exchange</h3>
+                                <p class="text-accent text-xs sm:text-sm">Water Treatment</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 line-clamp-3">
+                            Comprehensive water and environment management solutions including STP, WTP, and RO systems.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Partner 4 -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                            <div class="w-14 h-14 sm:w-16 lg:w-20 sm:h-16 lg:h-20 bg-primary rounded-lg flex items-center justify-center p-2 flex-shrink-0">
+                                <img src="https://www.firesafetysearch.com/wp-content/uploads/2019/01/FirePro-logo.gif" 
+                                     alt="FirePro" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-base sm:text-lg lg:text-xl font-bold text-dark truncate">FirePro</h3>
+                                <p class="text-accent text-xs sm:text-sm">Fire Safety</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 line-clamp-3">
+                            Advanced fire detection and suppression systems using cutting-edge technology.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Partner 5 -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                            <div class="w-14 h-14 sm:w-16 lg:w-20 sm:h-16 lg:h-20 bg-primary rounded-lg flex items-center justify-center p-2 flex-shrink-0">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSt6YM5rEmRCo1cX8Bi91i_Bys-v72FkRMnA&s" 
+                                     alt="Stanvac" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-base sm:text-lg lg:text-xl font-bold text-dark truncate">Stanvac</h3>
+                                <p class="text-accent text-xs sm:text-sm">Chemicals</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 line-clamp-3">
+                            Leading manufacturer of specialty chemicals and industrial coatings.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Partner 6 -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex items-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
+                            <div class="w-14 h-14 sm:w-16 lg:w-20 sm:h-16 lg:h-20 bg-primary rounded-lg flex items-center justify-center p-2 flex-shrink-0">
+                                <img src="https://www.sammaparts.com/img/m/28.jpg" 
+                                     alt="JASIC" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-base sm:text-lg lg:text-xl font-bold text-dark truncate">JASIC India</h3>
+                                <p class="text-accent text-xs sm:text-sm">Welding Equipment</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 line-clamp-3">
+                            High-quality welding equipment and machinery for industrial welding applications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 sm:py-16 lg:py-20 bg-primary">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-10 sm:mb-12 lg:mb-16">
+                <div class="text-center lg:text-left mb-6 lg:mb-0">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">Our Services</h2>
+                    <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 lg:mx-0 mx-auto mb-4 sm:mb-6"></div>
+                    <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl px-4 lg:px-0">Comprehensive industrial solutions tailored to your needs</p>
+                </div>
+                
+                <!-- Visit Services Link -->
+                <div class="text-center lg:text-right">
+                    <a href="pages/service.html" 
+                       class="inline-flex items-center space-x-2 text-accent hover:text-blue-600 font-semibold text-sm sm:text-base lg:text-lg transition-colors duration-300 hover:underline underline-offset-4">
+                        <span>Visit All Services</span>
+                        <i class="fas fa-arrow-right text-xs sm:text-sm"></i>
+                    </a>
+                    <p class="text-textlight text-xs sm:text-sm mt-2">Explore our complete range of industrial solutions</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+                <!-- Service 1 - Steel Fabrication -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ13BoArYAnmqsBV6tbBKv3lnCP4Ghgvw0O7A&s" 
+                             alt="Steel Fabrication" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Steel Fabrication</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            Expert steel fabrication services including custom design, structural repairs, and maintenance solutions for industrial applications.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Structural Fabrication</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Plate Work</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Pipe Fabrication</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 - Protective Coatings -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://specialtycoatingsinc.com/cdn/shop/articles/glo-concrete-protection-sikagard-03_16-9.jpg?v=1695868369" 
+                             alt="Protective Coatings" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Protective Coatings</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            High-performance protective coatings and industrial paints for corrosion protection and equipment longevity in harsh environments.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Epoxy Coatings</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Corrosion Protection</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">High-Temp Coatings</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 - Welding Solutions -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://img.freepik.com/free-photo/man-working-with-argon-welding-machine-garage_158595-8151.jpg?semt=ais_hybrid&w=740&q=80" 
+                             alt="Welding Solutions" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Welding Solutions</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            Premium quality welding electrodes, equipment, and accessories for all industrial applications and specialized welding requirements.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">MIG/TIG Welding</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Pipeline Welding</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Welding Consumables</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 - Fire Safety -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E12AQGcMtsvYhUyIw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1685363510980?e=2147483647&v=beta&t=O3mpe_P9Q4dNQcpugVIv86fn94TAfJjuKNXwMvfm_JQ" 
+                             alt="Fire Safety" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Fire Safety</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            Comprehensive fire safety products, systems, and personal protective equipment to ensure workplace safety and compliance.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Fire Detection</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Suppression Systems</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Safety Equipment</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 - Water Treatment -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://media.istockphoto.com/id/1472824092/photo/aerial-view-of-modern-water-cleaning-facility-at-urban-wastewater-treatment-plant.jpg?s=612x612&w=0&k=20&c=o0yNiP_focHD67bBP2oeDQR3IPgYoeDqwCUUnshyBzE=" 
+                             alt="Water Treatment" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Water Treatment</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            Complete water treatment solutions including STP, WTP, and reverse osmosis systems for industrial and municipal applications.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">STP/WTP</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">RO Systems</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Effluent Treatment</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 - Wear Protection -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80" 
+                             alt="Wear Protection" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Wear Protection</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            Advanced wear protection technologies including ceramic and rubber linings to extend equipment life and reduce maintenance costs.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Ceramic Linings</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Rubber Linings</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Wear Plates</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 7 - Fire Detection -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://www.willstrong.in/wp-content/uploads/2025/07/multi-sensor-1-1024x683.jpg" 
+                             alt="Fire Detection" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Fire Detection</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            State-of-the-art fire detection systems, gas detectors, and automated suppression solutions for complete safety.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Smoke Detection</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Gas Detection</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Monitoring Systems</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 8 - Industrial Consumables -->
+                <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+                    <div class="h-36 sm:h-40 lg:h-48 overflow-hidden flex-shrink-0">
+                        <img src="https://padia.org/wp-content/uploads/2023/10/Industrial-Consumables-Sales.jpg" 
+                             alt="Industrial Consumables" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                        <div class="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                            
+                            <h3 class="text-base sm:text-lg font-bold text-dark">Industrial Consumables</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-textlight mb-3 sm:mb-4 flex-grow line-clamp-3">
+                            Complete range of mechanical and electrical consumables, spare parts, and installation services for industrial maintenance.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Mechanical Parts</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Electrical Components</span>
+                            <span class="px-2 sm:px-3 py-1 bg-primary text-[10px] sm:text-xs font-medium text-accent rounded-full">Maintenance Supplies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Content Section -->
+            <div class="mt-10 sm:mt-12 lg:mt-16 bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="text-center">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <i class="fas fa-check-circle text-white text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-dark mb-2 sm:mb-3">Quality Assurance</h3>
+                        <p class="text-xs sm:text-sm text-textlight">
+                            All our services adhere to international quality standards with thorough testing and inspection at every stage.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <i class="fas fa-clock text-white text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-dark mb-2 sm:mb-3">Timely Delivery</h3>
+                        <p class="text-xs sm:text-sm text-textlight">
+                            We understand the importance of timelines in industrial projects and ensure on-time delivery of all services.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center sm:col-span-2 lg:col-span-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <i class="fas fa-headset text-white text-xl sm:text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-dark mb-2 sm:mb-3">24/7 Support</h3>
+                        <p class="text-xs sm:text-sm text-textlight">
+                            Round-the-clock technical support and emergency services to ensure minimal downtime for your operations.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Call to Action -->
+                <div class="text-center mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200">
+                    <h3 class="text-xl sm:text-2xl font-bold text-dark mb-3 sm:mb-4">Need Customized Solutions?</h3>
+                    <p class="text-xs sm:text-sm text-textlight mb-4 sm:mb-6 max-w-2xl mx-auto px-4">
+                        We specialize in providing customized industrial solutions tailored to your specific requirements. 
+                        Contact us for a free consultation.
+                    </p>
+                    <a href="#contact" 
+                       class="inline-flex items-center space-x-2 bg-accent hover:bg-blue-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl text-sm sm:text-base">
+                        <!-- <i class="fas fa-phone"></i> -->
+                        <span>Get a Free Consultation</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            
+
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-10 sm:mb-12 lg:mb-16">
+                <div class="text-center lg:text-left mb-6 lg:mb-0">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">Products & Solutions</h2>
+                    <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 lg:mx-0 mx-auto mb-4 sm:mb-6"></div>
+                    <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl px-4 lg:px-0">Innovative solutions for diverse industrial applications</p>
+                </div>
+                
+                <!-- Visit product Link -->
+                <div class="text-center lg:text-right">
+                  <a href="pages/products.html"  
+                       class="inline-flex items-center space-x-2 text-accent hover:text-blue-600 font-semibold text-sm sm:text-base lg:text-lg transition-colors duration-300 hover:underline underline-offset-4">
+                        <span>Visit All Products</span>
+                        <i class="fas fa-arrow-right text-xs sm:text-sm"></i>
+                    </a>
+                    <p class="text-textlight text-xs sm:text-sm mt-2">Explore our complete range of industrial solutions</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                <!-- Product Category 1 -->
+                <div class="product-card bg-primary rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 flex flex-col">
+                    <div class="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-layer-group text-white text-xl sm:text-2xl"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-dark">Industrial Coating Solutions</h3>
+                            <p class="text-accent text-xs sm:text-sm">Advanced coating systems for corrosion protection</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://coatingsystems.com/wp-content/uploads/2018/10/epoxy-coating.jpg" 
+                                 alt="Epoxy Coatings" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">Epoxy Coatings</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">High-performance epoxy coating solutions</p>
+                        </div>
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://5.imimg.com/data5/BK/VE/MY-818157/pu-system-foam-500x500.jpg" 
+                                 alt="Polyurethane Systems" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">Polyurethane Systems</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">Durable polyurethane coating systems</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-2 mb-4 sm:mb-6 flex-grow">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">High-Temperature Coatings</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Zinc-Rich Primers</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Industrial Floor Coatings</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- <a href="coating-solutions.html" class="mt-auto bg-accent hover:bg-blue-600 text-white px-4 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Visit Solution</span>
+                    </a> -->
+                </div>
+                
+                <!-- Product Category 2 -->
+                <div class="product-card bg-primary rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 flex flex-col">
+                    <div class="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-puzzle-piece text-white text-xl sm:text-2xl"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-dark">Industrial Spare Solutions</h3>
+                            <p class="text-accent text-xs sm:text-sm">Comprehensive inventory of industrial spare parts</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://www.easiahome.com/wp-content/uploads/2023/07/machine-components-1024x576.jpg" 
+                                 alt="Mechanical Components" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">Mechanical Parts</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">Quality mechanical components</p>
+                        </div>
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://hackatronic.com/wp-content/uploads/2020/06/Electronics-components-985x642.jpg" 
+                                 alt="Electrical Parts" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">Electrical Parts</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">Reliable electrical components</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-2 mb-4 sm:mb-6 flex-grow">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Bearings & Seals</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Pumps & Valves</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Conveyor Components</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- <a href="spare-solutions.html" class="mt-auto bg-accent hover:bg-blue-600 text-white px-4 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Visit Solution</span>
+                    </a> -->
+                </div>
+                
+                <!-- Product Category 3 -->
+                <div class="product-card bg-primary rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 flex flex-col">
+                    <div class="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-hard-hat text-white text-xl sm:text-2xl"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-dark">Wear Protection Solutions</h3>
+                            <p class="text-accent text-xs sm:text-sm">Specialized wear-resistant materials and systems</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://5.imimg.com/data5/SELLER/Default/2021/11/PC/SL/ZY/20556/ceramic-lining.jpg" 
+                                 alt="Ceramic Linings" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">Ceramic Linings</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">High-wear ceramic lining solutions</p>
+                        </div>
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://atlaswearsolutions.com.au/wp-content/uploads/2022/07/Types-Of-Rubber-Lining-Used-In-Wear-Corrosion-Protection.png" 
+                                 alt="Rubber Lining" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">Rubber Lining</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">Durable rubber lining systems</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-2 mb-4 sm:mb-6 flex-grow">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Hardfacing Solutions</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Wear Plates & Tiles</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Impact Protection</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- <a href="wear-protection.html" class="mt-auto bg-accent hover:bg-blue-600 text-white px-4 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Visit Solution</span>
+                    </a> -->
+                </div>
+                
+                <!-- Product Category 4 -->
+                <div class="product-card bg-primary rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 flex flex-col">
+                    <div class="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-fire-extinguisher text-white text-xl sm:text-2xl"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="text-lg sm:text-xl lg:text-2xl font-bold text-dark">Fire Safety Solutions</h3>
+                            <p class="text-accent text-xs sm:text-sm">Advanced fire detection and suppression systems</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://qasrelriada.com/wp-content/uploads/2024/11/Kidde_C02_Fryer_Notifier_320_Panel.jpg" 
+                                 alt="CO2 Systems" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">CO₂ Systems</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">Carbon dioxide fire suppression</p>
+                        </div>
+                        <div class="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4">
+                            <img src="https://frontierfireco.com/wp-content/uploads/2015/03/How-a-Clean-Agent-System-Works.png" 
+                                 alt="Clean Agent Systems" class="w-full h-24 sm:h-28 lg:h-32 object-cover rounded-lg mb-2">
+                            <h4 class="font-bold text-dark mb-1 text-sm sm:text-base">Clean Agent Systems</h4>
+                            <p class="text-[10px] sm:text-xs text-textlight">Environment-friendly suppression</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-2 mb-4 sm:mb-6 flex-grow">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Aerosol Generators</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Tubing Systems</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-accent flex-shrink-0"></i>
+                            <span class="text-xs sm:text-sm text-textlight">Detection Systems</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- <a href="fire-safety.html" class="mt-auto bg-accent hover:bg-blue-600 text-white px-4 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2 text-sm sm:text-base">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Visit Solution</span>
+                    </a> -->
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-12 sm:py-16 lg:py-20 bg-secondary overflow-hidden">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10 sm:mb-12 lg:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">Our Esteemed Clients</h2>
+                <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl mx-auto px-4">Trusted by leading industrial organizations across India</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Client Logos Slider -->
+                <div class="client-slider client-slider-slow overflow-hidden">
+                    <div class="flex space-x-4 sm:space-x-6 lg:space-x-8 animate-slide-slow">
+                        <!-- Client 1 - UltraTech Cement -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
+                                 alt="UltraTech Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 2 - Wonder Cement -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://www.wondercement.com/images/header/new_logo.png" 
+                                 alt="Wonder Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 3 - NUVOCO -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
+                                 alt="NUVOCO" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 4 - JK Cement -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
+                                 alt="JK Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 5 - JK Lakshmi Cement -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
+                                 alt="JK Lakshmi Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 6 - Birla Corporation -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
+                                 alt="Birla Corporation" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 7 - India Cements -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/6/62/India_Cements_logo.png" 
+                                 alt="India Cements" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 8 - Adani Cement -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://m.economictimes.com/thumb/msid-126125091,width-1200,height-900,resizemode-4,imgsize-21900/ambuja-cements-of-adani-portfolio-selected-for-first-indo-swedish-ccu-pilot-in-global-cement-sector.jpg" 
+                                 alt="Adani Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 9 - Jindal -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://s3-symbol-logo.tradingview.com/jindal-saw-ltd--600.png" 
+                                 alt="Jindal" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 10 - Sangam India -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRY3i4rwZLdqlhLYVZTH-z6---iKkCYbz1vg&s" 
+                                 alt="Sangam India" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 11 - Asahi India Glass -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMgWAuchllvP6i0UCe-ELnWRvilgbE-axKA&s" 
+                                 alt="Asahi India Glass" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Client 12 - Vedanta -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png" 
+                                 alt="Vedanta" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <!-- Duplicate logos for seamless loop -->
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
+                                 alt="UltraTech Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://www.wondercement.com/images/header/new_logo.png" 
+                                 alt="Wonder Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
+                                 alt="NUVOCO" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
+                                 alt="JK Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
+                                 alt="JK Lakshmi Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
+                                 alt="Birla Corporation" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/6/62/India_Cements_logo.png" 
+                                 alt="India Cements" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://m.economictimes.com/thumb/msid-126125091,width-1200,height-900,resizemode-4,imgsize-21900/ambuja-cements-of-adani-portfolio-selected-for-first-indo-swedish-ccu-pilot-in-global-cement-sector.jpg" 
+                                 alt="Adani Cement" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://s3-symbol-logo.tradingview.com/jindal-saw-ltd--600.png" 
+                                 alt="Jindal" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRY3i4rwZLdqlhLYVZTH-z6---iKkCYbz1vg&s" 
+                                 alt="Sangam India" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMgWAuchllvP6i0UCe-ELnWRvilgbE-axKA&s" 
+                                 alt="Asahi India Glass" class="w-full h-full object-contain">
+                        </div>
+                        
+                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
+                            <img src="https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png" 
+                                 alt="Vedanta" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gradient Overlays -->
+                <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-20 lg:w-24 bg-gradient-to-r from-secondary to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-20 lg:w-24 bg-gradient-to-l from-secondary to-transparent z-10 pointer-events-none"></div>
+            </div>
+            
+            <!-- Client Grid for Mobile (hidden on desktop)
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:hidden gap-4 mt-8">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                    <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
+                         alt="UltraTech Cement" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                    <img src="https://www.wondercement.com/images/header/new_logo.png" 
+                         alt="Wonder Cement" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                    <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
+                         alt="NUVOCO" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                    <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
+                         alt="JK Cement" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                    <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
+                         alt="JK Lakshmi Cement" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                    <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
+                         alt="Birla Corporation" class="w-full h-full object-contain">
+                </div>
+            </div> -->
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10 sm:mb-12 lg:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">Contact Us</h2>
+                <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl mx-auto px-4">Get in touch with us for your industrial needs</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-6 sm:gap-8">
+                <!-- Contact Information -->
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="bg-primary rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white text-lg sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-lg sm:text-xl font-bold text-dark mb-2">Phone</h3>
+                                <p class="text-sm sm:text-base text-textlight mb-1">
+                                    <a href="tel:+919460476041" class="hover:text-accent transition-colors">+91-9460476041</a>
+                                </p>
+                                <p class="text-sm sm:text-base text-textlight">
+                                    <a href="tel:+918690406041" class="hover:text-accent transition-colors">+91-8690406041</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-white text-lg sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h3 class="text-lg sm:text-xl font-bold text-dark mb-2">Email</h3>
+                                <p class="text-sm sm:text-base text-textlight mb-1 break-words">
+                                    <a href="mailto:techsure2020@gmail.com" class="hover:text-accent transition-colors">
+                                        techsure2020@gmail.com
+                                    </a>
+                                </p>
+                                
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 hover:shadow-xl transition-all duration-300">
+                        <div class="flex items-start space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white text-lg sm:text-xl"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="text-lg sm:text-xl font-bold text-dark mb-2">Office Address</h3>
+                                <p class="text-sm sm:text-base text-textlight mb-1">S-85, Block-4, Ambe Market</p>
+                                <p class="text-sm sm:text-base text-textlight">Chittorgarh, Rajasthan – 312001</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Small Map -->
+                    <div class="bg-primary rounded-xl sm:rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                        <div class="p-3 sm:p-4">
+                            <h3 class="text-lg sm:text-xl font-bold text-dark mb-3 sm:mb-4">Our Location</h3>
+                            <div class="h-48 sm:h-56 lg:h-64 rounded-lg overflow-hidden">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.5396723766584!2d74.62719!3d24.88012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDUyJzQ4LjQiTiA3NMKwMzcnMzcuOSJF!5e0!3m2!1sen!2sin!4v1234567890" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-primary rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 hover:shadow-xl transition-all duration-300">
+                    <h3 class="text-xl sm:text-2xl font-bold text-dark mb-4 sm:mb-6">Send us a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-4 sm:space-y-6">
+                        <div>
+                            <label for="name" class="block text-dark font-medium mb-2 text-sm sm:text-base">Full Name *</label>
+                            <input type="text" 
+                                   id="name" 
+                                   name="name" 
+                                   required 
+                                   class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 text-sm sm:text-base"
+                                   placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-dark font-medium mb-2 text-sm sm:text-base">Email Address *</label>
+                            <input type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   required 
+                                   class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 text-sm sm:text-base"
+                                   placeholder="Enter your email address">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-dark font-medium mb-2 text-sm sm:text-base">Phone Number *</label>
+                            <input type="tel" 
+                                   id="phone" 
+                                   name="phone" 
+                                   required 
+                                   class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 text-sm sm:text-base"
+                                   placeholder="Enter your phone number">
+                        </div>
+                        
+                        <div>
+                            <label for="company" class="block text-dark font-medium mb-2 text-sm sm:text-base">Company Name</label>
+                            <input type="text" 
+                                   id="company" 
+                                   name="company" 
+                                   class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 text-sm sm:text-base"
+                                   placeholder="Enter your company name">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-dark font-medium mb-2 text-sm sm:text-base">Message *</label>
+                            <textarea id="message" 
+                                      name="message" 
+                                      rows="4" 
+                                      required 
+                                      class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all duration-300 resize-none text-sm sm:text-base"
+                                      placeholder="Enter your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-accent hover:bg-blue-600 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg transition-all duration-300 hover:shadow-xl flex items-center justify-center space-x-2 text-sm sm:text-base">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send Message</span>
+                        </button>
+                        
+                        <div id="form-message" class="hidden p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer (Same as landing page) -->
+    <footer class="bg-dark text-white py-8 sm:py-10 lg:py-12">
+        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div>
+                    <h3 class="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4">Techsure Solutions</h3>
+                    <p class="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm">One Stop Solution for All Industrial Needs</p>
+                    <div class="flex space-x-3 sm:space-x-4">
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent transition-all duration-300 text-sm sm:text-base">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-accent transition-all duration-300 text-sm sm:text-base">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/919460476041" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-all duration-300 text-sm sm:text-base">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-bold mb-3 sm:mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="#home" class="text-gray-300 hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-accent transition-colors">Services</a></li>
+                        <li><a href="#products" class="text-gray-300 hover:text-accent transition-colors">Products</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-bold mb-3 sm:mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300 text-xs sm:text-sm">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-phone text-accent mt-1 flex-shrink-0"></i>
+                            <span class="break-words">+91-9460476041</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-phone text-accent mt-1 flex-shrink-0"></i>
+                            <span class="break-words">+91-8690406041</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-envelope text-accent mt-1 flex-shrink-0"></i>
+                            <span class="break-words">techsure2020@gmail.com</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-map-marker-alt text-accent mt-1 flex-shrink-0"></i>
+                            <span>Chittorgarh, Rajasthan</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base sm:text-lg font-bold mb-3 sm:mb-4">Business Details</h4>
+                    <ul class="space-y-2 text-gray-300 text-xs sm:text-sm">
+                        <li><strong>Type:</strong> Manufacturing | Services</li>
+                        <li><strong>GSTIN:</strong> 08AROPN9499H1ZQ</li>
+                        <li><strong>Certification:</strong> MSME Certified</li>
+                        <li><strong>PAN:</strong> AROPN9499H</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
+                <p>&copy; <span id="current-year"></span>2026 Techsure Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" 
+            class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 bg-accent text-white rounded-full shadow-lg hover:shadow-xl hover:bg-blue-600 transition-all duration-300 hidden z-40 flex items-center justify-center">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919460476041" 
+       target="_blank" 
+       class="fixed bottom-6 left-6 sm:bottom-8 sm:left-8 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 text-white rounded-full shadow-lg hover:shadow-xl hover:bg-green-600 transition-all duration-300 flex items-center justify-center z-40 animate-pulse">
+        <i class="fab fa-whatsapp text-xl sm:text-2xl"></i>
+    </a>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
