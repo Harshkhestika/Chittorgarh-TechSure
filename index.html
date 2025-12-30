@@ -23,6 +23,7 @@
                     },
                     fontFamily: {
                         poppins: ['Poppins', 'sans-serif'],
+                        cursive: ['"Dancing Script"', 'cursive']
                     },
                     animation: {
                         'slide': 'slide 40s linear infinite',
@@ -63,9 +64,30 @@
             }
         }
     </script>
+    <style>
+    /* Additional CSS to ensure equal spacing */
+    .animate-slide-slow {
+        display: flex;
+        animation: slide 60s linear infinite;
+    }
+    
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    
+    /* Ensure all client boxes have equal dimensions */
+    .flex-shrink-0 {
+        flex-shrink: 0;
+    }
+</style>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -74,19 +96,19 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- Favicon -->
-
     <link rel="icon" type="logo.png" href="logo.png">
-
 </head>
 <body class="font-poppins bg-primary text-text">
-    <!-- Header -->
+<!-- Header -->
 <header class="fixed top-0 w-full z-50 shadow-md bg-white">
     <div class="container mx-auto px-6 flex items-center justify-between py-3">
-
-        <!-- Logo -->
-        <a href="#" class="flex items-center">
-            <img src="logo.png" alt="Techsure Solutions" class="w-20"> 
-            <!-- Increased width from w-28 to w-40 -->
+        <!-- Logo with Cursive Company Name -->
+        <a href="#" class="flex items-center space-x-3">
+            <img src="logo.png" alt="Techsure Solutions" class="w-20">
+            <!-- Company Name in Cursive - Now visible on mobile -->
+            <span class="font-cursive text-2xl font-bold text-blue-700 italic tracking-wide">
+                Techsure Solutions
+            </span>
         </a>
 
         <!-- Navigation Menu -->
@@ -127,6 +149,8 @@
         document.getElementById("mobileMenu").classList.toggle("hidden");
     }
 </script>
+
+
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
@@ -854,190 +878,193 @@
             </div>
         </div>
     </section>
-
-    <!-- Clients Section -->
-    <section id="clients" class="py-12 sm:py-16 lg:py-20 bg-secondary overflow-hidden">
-        <div class="container mx-auto px-3 sm:px-4 lg:px-6">
-            <div class="text-center mb-10 sm:mb-12 lg:mb-16">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">Our Esteemed Clients</h2>
-                <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 mx-auto mb-4 sm:mb-6"></div>
-                <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl mx-auto px-4">Trusted by leading industrial organizations across India</p>
-            </div>
-            
-            <div class="relative">
-                <!-- Client Logos Slider -->
-                <div class="client-slider client-slider-slow overflow-hidden">
-                    <div class="flex space-x-4 sm:space-x-6 lg:space-x-8 animate-slide-slow">
-                        <!-- Client 1 - UltraTech Cement -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
-                                 alt="UltraTech Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 2 - Wonder Cement -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://www.wondercement.com/images/header/new_logo.png" 
-                                 alt="Wonder Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 3 - NUVOCO -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
-                                 alt="NUVOCO" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 4 - JK Cement -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
-                                 alt="JK Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 5 - JK Lakshmi Cement -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
-                                 alt="JK Lakshmi Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 6 - Birla Corporation -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
-                                 alt="Birla Corporation" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 7 - India Cements -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/6/62/India_Cements_logo.png" 
-                                 alt="India Cements" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 8 - Adani Cement -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://m.economictimes.com/thumb/msid-126125091,width-1200,height-900,resizemode-4,imgsize-21900/ambuja-cements-of-adani-portfolio-selected-for-first-indo-swedish-ccu-pilot-in-global-cement-sector.jpg" 
-                                 alt="Adani Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 9 - Jindal -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://s3-symbol-logo.tradingview.com/jindal-saw-ltd--600.png" 
-                                 alt="Jindal" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 10 - Sangam India -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRY3i4rwZLdqlhLYVZTH-z6---iKkCYbz1vg&s" 
-                                 alt="Sangam India" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 11 - Asahi India Glass -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMgWAuchllvP6i0UCe-ELnWRvilgbE-axKA&s" 
-                                 alt="Asahi India Glass" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Client 12 - Vedanta -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png" 
-                                 alt="Vedanta" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <!-- Duplicate logos for seamless loop -->
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
-                                 alt="UltraTech Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://www.wondercement.com/images/header/new_logo.png" 
-                                 alt="Wonder Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
-                                 alt="NUVOCO" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
-                                 alt="JK Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
-                                 alt="JK Lakshmi Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
-                                 alt="Birla Corporation" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/6/62/India_Cements_logo.png" 
-                                 alt="India Cements" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://m.economictimes.com/thumb/msid-126125091,width-1200,height-900,resizemode-4,imgsize-21900/ambuja-cements-of-adani-portfolio-selected-for-first-indo-swedish-ccu-pilot-in-global-cement-sector.jpg" 
-                                 alt="Adani Cement" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://s3-symbol-logo.tradingview.com/jindal-saw-ltd--600.png" 
-                                 alt="Jindal" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRY3i4rwZLdqlhLYVZTH-z6---iKkCYbz1vg&s" 
-                                 alt="Sangam India" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMgWAuchllvP6i0UCe-ELnWRvilgbE-axKA&s" 
-                                 alt="Asahi India Glass" class="w-full h-full object-contain">
-                        </div>
-                        
-                        <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4">
-                            <img src="https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png" 
-                                 alt="Vedanta" class="w-full h-full object-contain">
-                        </div>
+<!-- Clients Section -->
+<section id="clients" class="py-12 sm:py-16 lg:py-20 bg-secondary overflow-hidden">
+    <div class="container mx-auto px-3 sm:px-4 lg:px-6">
+        <div class="text-center mb-10 sm:mb-12 lg:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-3 sm:mb-4">Our Esteemed Clients</h2>
+            <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-accent to-blue-400 mx-auto mb-4 sm:mb-6"></div>
+            <p class="text-sm sm:text-base lg:text-lg text-textlight max-w-3xl mx-auto px-4">Trusted by leading industrial organizations across India</p>
+        </div>
+        
+        <div class="relative">
+            <!-- Client Logos Slider -->
+            <div class="client-slider client-slider-slow overflow-hidden">
+                <div class="flex animate-slide-slow">
+                    <!-- Client 1 - UltraTech Cement -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
+                             alt="UltraTech Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 2 - Wonder Cement -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://www.wondercement.com/images/header/new_logo.png" 
+                             alt="Wonder Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 3 - NUVOCO -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
+                             alt="NUVOCO" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 4 - JK Cement -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
+                             alt="JK Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 5 - JK Lakshmi Cement -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
+                             alt="JK Lakshmi Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 6 - Birla Corporation -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
+                             alt="Birla Corporation" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 7 - India Cements -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/6/62/India_Cements_logo.png" 
+                             alt="India Cements" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 8 - Adani Cement -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://m.economictimes.com/thumb/msid-126125091,width-1200,height-900,resizemode-4,imgsize-21900/ambuja-cements-of-adani-portfolio-selected-for-first-indo-swedish-ccu-pilot-in-global-cement-sector.jpg" 
+                             alt="Adani Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 9 - Jindal -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://s3-symbol-logo.tradingview.com/jindal-saw-ltd--600.png" 
+                             alt="Jindal" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 10 - Sangam India -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRY3i4rwZLdqlhLYVZTH-z6---iKkCYbz1vg&s" 
+                             alt="Sangam India" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 11 - Asahi India Glass -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMgWAuchllvP6i0UCe-ELnWRvilgbE-axKA&s" 
+                             alt="Asahi India Glass" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Client 12 - Vedanta -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png" 
+                             alt="Vedanta" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <!-- Duplicate logos for seamless loop -->
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
+                             alt="UltraTech Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://www.wondercement.com/images/header/new_logo.png" 
+                             alt="Wonder Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
+                             alt="NUVOCO" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
+                             alt="JK Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
+                             alt="JK Lakshmi Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
+                             alt="Birla Corporation" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/6/62/India_Cements_logo.png" 
+                             alt="India Cements" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://m.economictimes.com/thumb/msid-126125091,width-1200,height-900,resizemode-4,imgsize-21900/ambuja-cements-of-adani-portfolio-selected-for-first-indo-swedish-ccu-pilot-in-global-cement-sector.jpg" 
+                             alt="Adani Cement" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://s3-symbol-logo.tradingview.com/jindal-saw-ltd--600.png" 
+                             alt="Jindal" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRY3i4rwZLdqlhLYVZTH-z6---iKkCYbz1vg&s" 
+                             alt="Sangam India" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMgWAuchllvP6i0UCe-ELnWRvilgbE-axKA&s" 
+                             alt="Asahi India Glass" class="w-full h-full object-contain">
+                    </div>
+                    
+                    <div class="flex-shrink-0 w-44 h-28 sm:w-48 sm:h-32 lg:w-56 lg:h-40 bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center p-3 sm:p-4 mx-2">
+                        <img src="https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png" 
+                             alt="Vedanta" class="w-full h-full object-contain">
                     </div>
                 </div>
-                
-                <!-- Gradient Overlays -->
-                <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-20 lg:w-24 bg-gradient-to-r from-secondary to-transparent z-10 pointer-events-none"></div>
-                <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-20 lg:w-24 bg-gradient-to-l from-secondary to-transparent z-10 pointer-events-none"></div>
             </div>
             
-            <!-- Client Grid for Mobile (hidden on desktop)
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:hidden gap-4 mt-8">
-                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+            <!-- Gradient Overlays -->
+            <div class="absolute left-0 top-0 bottom-0 w-12 sm:w-20 lg:w-24 bg-gradient-to-r from-secondary to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-12 sm:w-20 lg:w-24 bg-gradient-to-l from-secondary to-transparent z-10 pointer-events-none"></div>
+        </div>
+        
+        <!-- Optional: Static grid for mobile if needed -->
+        <!-- <div class="lg:hidden mt-8">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-28 flex items-center justify-center">
                     <img src="https://i.pinimg.com/736x/98/4d/60/984d60630186e440e9c01655c3e50f1b.jpg" 
                          alt="UltraTech Cement" class="w-full h-full object-contain">
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-28 flex items-center justify-center">
                     <img src="https://www.wondercement.com/images/header/new_logo.png" 
                          alt="Wonder Cement" class="w-full h-full object-contain">
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-28 flex items-center justify-center">
                     <img src="https://www.chittorgarh.net/images/ipo/nuvoco-logo.png" 
                          alt="NUVOCO" class="w-full h-full object-contain">
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-28 flex items-center justify-center">
                     <img src="https://i.ytimg.com/vi/sTCIonfluME/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB2FmuQqF4rnmmiFAcbfTUJDGxLzQ" 
                          alt="JK Cement" class="w-full h-full object-contain">
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-28 flex items-center justify-center">
                     <img src="https://yt3.googleusercontent.com/h_Asmmw5DM8Vm5OOKcj6nF8qT36b7tL5-H0n0v-S3atRvUloTmywEhBTMXSxY8tUNluEPJZ815I=s900-c-k-c0x00ffffff-no-rj" 
                          alt="JK Lakshmi Cement" class="w-full h-full object-contain">
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-3 h-24 flex items-center justify-center">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-28 flex items-center justify-center">
                     <img src="https://issuer-master-article-logos.s3.ap-south-1.amazonaws.com/BIRLA-CORPORATION-LIMITED.jpg" 
                          alt="Birla Corporation" class="w-full h-full object-contain">
                 </div>
-            </div> -->
-        </div>
-    </section>
-    
+            </div>
+        </div> -->
+    </div>
+</section>
+
+
+
     <!-- Contact Section -->
     <section id="contact" class="py-12 sm:py-16 lg:py-20 bg-white">
         <div class="container mx-auto px-3 sm:px-4 lg:px-6">
@@ -1249,7 +1276,7 @@
             </div>
             
             <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center text-gray-400 text-xs sm:text-sm">
-                <p>&copy; <span id="current-year"></span>2026 Techsure Solutions. All rights reserved.</p>
+                <p>&copy; <span id="current-year"></span> Techsure Solutions. All rights reserved.</p>
             </div>
         </div>
     </footer>
