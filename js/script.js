@@ -5,10 +5,10 @@
 const header = document.getElementById('header');
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
-const closeMenu = document.getElementById('close-menu') ;
+const closeMenu = document.getElementById('close-menu');
 const navLinks = document.querySelectorAll('.nav-link, #mobile-menu a');
-const scrollTopBtn = document.getElementById('scroll-top') ;
-const contactForm = document.getElementById('contact-form') ;
+const scrollTopBtn = document.getElementById('scroll-top');
+const contactForm = document.getElementById('contact-form');
 const formMessage = document.getElementById('form-message');
 const currentYearSpan = document.getElementById('current-year');
 
