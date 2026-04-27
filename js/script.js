@@ -1,5 +1,6 @@
 // Enhanced Responsive JavaScript for Techsure Solutions
 
+
 // DOM Elements
 const header = document.getElementById('header');
 const hamburger = document.getElementById('hamburger');
