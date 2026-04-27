@@ -3,7 +3,7 @@
 
 // DOM Elements
 const header = document.getElementById('header') ;
-const hamburger = document.getElementById('hamburger');
+const hamburger = document.getElementById('hamburger') ;
 const mobileMenu = document.getElementById('mobile-menu');
 const closeMenu = document.getElementById('close-menu');
 const navLinks = document.querySelectorAll('.nav-link, #mobile-menu a');
