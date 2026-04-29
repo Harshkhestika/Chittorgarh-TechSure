@@ -14,6 +14,7 @@ const formMessage = document.getElementById('form-message');
 const currentYearSpan = document.getElementById('current-year');
 const partnerCards = document.querySelectorAll('.partner-card');
 
+
 // Viewport Detection
 const isMobile = () => window.innerWidth < 768;
 const isTablet = () => window.innerWidth >= 768 && window.innerWidth < 1024;
