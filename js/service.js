@@ -1,8 +1,5 @@
 // Services Page Enhanced JavaScript
 
-
-
-
 // DOM Elements
 const header = document.getElementById('header');
 const hamburger = document.getElementById('hamburger');
